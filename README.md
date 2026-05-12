@@ -7,10 +7,13 @@ A fully customized, neural-network-driven offline voice controller built on the 
 ## 🧠 System Architecture & Engineering Highlights
 
 * **100% Offline Keyword Detection:** Powered by Espressif's `WakeNet9` engine running locally on the ESP32-S3 Korvo-1 hardware pipeline. Listen operations require zero cloud computation.
+
 * **Custom Acoustic Phonetics:** Overcame heavy acoustic overlap bugs (e.g., false triggering between similar-sounding rooms) by reverse-engineering native G2P mapping. Custom multi-syllable logic ensures 90%+ command accuracy across the room.
+
 * **Dual-Layer Automation Triggering:**
   * **Local WLED Webhooks:** Lightning-fast ambient lighting control over local HTTP (`192.168.1.X`), executing triggers in bare milliseconds without XML chunked-encoding crashes.
   * **Cloud Webhooks (Voice Monkey Bridge):** Background HTTPS `GET` requests linked to AWS/Alexa cloud triggers smoothly control Tuya smart relays (Floodlights & Dining room) without blocking the FreeRTOS audio feed task.
+
 * **Native RGB Visual Feedback:** Built-in WS2812 NeoPixel integration (mapped accurately to Korvo-1 `GPIO 48`) provides immediate visual states: **Red** (Standby/Sleep), **Green** (Active Listening), and **Blue Flash** (Successful Transmission).
 
 ---
@@ -39,11 +42,11 @@ The MultiNet command engine has been strictly structured with punchy, zero-fille
    * `WIFI_SSID` & `WIFI_PASS`
    * `VM_TOKEN` (Secure Voice Monkey API Token)
    * `WLED_IP` (Target WLED Instance IP)
+  
 3. **Compilation:** Execute a full workspace clean to compile the customized vocabulary models cleanly, followed by flash execution:
    ```bash
    idf.py fullclean
    idf.py build flash monitor
 
-   ---
-
+---
 ## This system framework utilizes the open-source en_speech_commands_recognition operational base layer provided within the Espressif ESP-Skainet core repository, highly overhauled and optimized for independent Multi-API environments.
