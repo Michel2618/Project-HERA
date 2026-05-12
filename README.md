@@ -75,7 +75,7 @@ Prior to compilation, navigate to `main/main.c` and populate the internal defini
 // Cloud API & Local Instance Mapping
 #define VM_TOKEN       "YOUR_VOICEMONKEY_TOKEN_HERE"
 #define WLED_IP        "192.168.1.X" // Update with static local WLED IP
-
+```
 ---
 
 This system framework utilizes the open-source **en_speech_commands_recognition** operational base layer provided within the **Espressif ESP-Skainet** core repository, highly overhauled, re-mapped, and optimized for independent Multi-API environments.
