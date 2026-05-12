@@ -1,0 +1,6 @@
+# Gitignore for ESP-IDF Projects
+build/
+managed_components/
+dependencies.lock
+sdkconfig.old
+.vscode/
